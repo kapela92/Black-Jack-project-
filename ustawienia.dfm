@@ -1,0 +1,137 @@
+object OknoUstawien: TOknoUstawien
+  Left = 284
+  Top = 233
+  Width = 785
+  Height = 540
+  Caption = 'Ustawienia'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object SpeedButton1: TSpeedButton
+    Left = 416
+    Top = 104
+    Width = 81
+    Height = 25
+    Caption = 'Graj'
+    OnClick = SpeedButton1Click
+  end
+  object SpeedButton2: TSpeedButton
+    Left = 416
+    Top = 144
+    Width = 81
+    Height = 25
+    Caption = 'Stop'
+    OnClick = SpeedButton2Click
+  end
+  object Label1: TLabel
+    Left = 320
+    Top = 112
+    Width = 30
+    Height = 13
+    Caption = 'Status'
+  end
+  object Label2: TLabel
+    Left = 320
+    Top = 152
+    Width = 40
+    Height = 13
+    Caption = 'Stopped'
+  end
+  object TrackBar1: TTrackBar
+    Left = 80
+    Top = 72
+    Width = 177
+    Height = 33
+    Max = 64000
+    Orientation = trHorizontal
+    Frequency = 6400
+    Position = 32000
+    SelEnd = 0
+    SelStart = 0
+    TabOrder = 0
+    TickMarks = tmBottomRight
+    TickStyle = tsAuto
+    OnChange = TrackBar1Change
+  end
+  object MediaPlayer1: TMediaPlayer
+    Left = 88
+    Top = 128
+    Width = 197
+    Height = 57
+    ColoredButtons = [btPlay, btPause, btStop, btNext, btPrev, btStep, btBack]
+    EnabledButtons = [btPlay, btPause, btStop, btNext, btPrev, btStep, btBack]
+    VisibleButtons = [btPlay, btPause, btStop, btNext, btPrev, btStep, btBack]
+    AutoOpen = True
+    FileName = 'zxc.wav'
+    Visible = False
+    TabOrder = 1
+    OnClick = MediaPlayer1Click
+    OnNotify = MediaPlayer1Notify
+  end
+  object Imie_gracza: TMaskEdit
+    Left = 88
+    Top = 320
+    Width = 153
+    Height = 21
+    TabOrder = 2
+  end
+  object glosnosc: TStaticText
+    Left = 88
+    Top = 48
+    Width = 92
+    Height = 17
+    Caption = 'G'#322'osnosc dzwieku'
+    TabOrder = 3
+  end
+  object imie_gracza2: TStaticText
+    Left = 88
+    Top = 296
+    Width = 58
+    Height = 17
+    Caption = 'Imie gracza'
+    TabOrder = 4
+  end
+  object Button1: TButton
+    Left = 416
+    Top = 24
+    Width = 81
+    Height = 25
+    Caption = 'Dodaj pliki'
+    TabOrder = 5
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 416
+    Top = 64
+    Width = 81
+    Height = 25
+    Caption = 'Koniec'
+    TabOrder = 6
+    Visible = False
+    OnClick = Button2Click
+  end
+  object ListBox1: TListBox
+    Left = 544
+    Top = 24
+    Width = 161
+    Height = 265
+    ItemHeight = 13
+    TabOrder = 7
+    OnClick = ListBox1Click
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 481
+    Width = 777
+    Height = 25
+    Panels = <>
+    SimplePanel = False
+  end
+end

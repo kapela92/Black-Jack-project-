@@ -1,0 +1,116 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+#include <fstream.h>
+#include <string.h>
+
+
+#include "menu.h"
+#include "pomoc.h"
+#include "ustawienia.h"
+#include "wyniki.h"
+#include "gra.h"
+
+
+
+
+
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+        : TForm(Owner)
+{
+
+
+ 
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Zakocz1Click(TObject *Sender)
+{
+Close();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Autorzy1Click(TObject *Sender)
+{
+ShowMessage("Vikol  i  Siiwy   kl. 4TI");
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::StartClick(TObject *Sender)
+{
+ oczko=0;
+konto=1000;
+stawka=1;
+Gra_Blackjack->Show() ;
+nazwa_gracza=OknoUstawien->Imie_gracza->Text;
+Gra_Blackjack->polenazwagracza->Caption=nazwa_gracza;
+
+
+char *zmienna;
+zmienna = nazwa_gracza.c_str();
+
+ fstream gracz("pomoc.txt",ios::trunc |ios::in | ios::out);
+  if (!gracz)
+  {blad=2;}
+  gracz<<zmienna ;
+  gracz.close();
+
+  oczko=0;
+konto=1000;
+stawka=1;
+
+
+
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::PomocClick(TObject *Sender)
+{
+OknoPomocy->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::UstawieniaClick(TObject *Sender)
+{  char zxcv[15];
+ fstream nazwa("pomoc.txt",ios::in | ios::out);
+  if (!nazwa)
+  {blad=2;}
+  nazwa.getline(zxcv,15);
+    nazwa.close();
+
+OknoUstawien->Show();
+OknoUstawien->Imie_gracza->Text=zxcv;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::ZakonczClick(TObject *Sender)
+{
+Close();        
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+
+void __fastcall TForm1::RekordyClick(TObject *Sender)
+{
+OknoWynikow->Show();
+OknoWynikow->zxc->Lines->LoadFromFile("rekordy1.txt");
+
+}
+//---------------------------------------------------------------------------
+
+
+
